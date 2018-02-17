@@ -1,0 +1,185 @@
+﻿body {
+    font-family:Verdana;
+}
+
+input {
+    font-variant:small-caps;
+    font-weight:bold;
+    font-family:Tahoma;
+}
+
+#overallStatus {
+    cursor:pointer;
+}
+
+#time {
+    background-color: aquamarine;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.Mstr {
+    position: relative;
+    margin-top: 30px;
+    float: left;
+    margin-right: 30px;
+    border-bottom: solid 5px white;
+}
+
+.Sel {
+       border-bottom:solid 5px #30671a;
+    }
+
+.Child {
+    width: 14px;
+    bottom: 10px;
+    position: absolute;
+}
+
+.green {
+    background-color: #7ddb5d;
+}
+
+.red {
+    background-color: red;
+}
+
+.yellow {
+    background-color: #cbcc44;
+}
+
+.zero {
+    background-color:red;
+    height:100% !important;
+}
+
+.container {
+    height: 100px;
+    width: 14px;
+    position: relative;
+    float: left;
+    margin: 0px 1px 0px 0px;
+    font-family: Arial Black;
+    font-size: 8px;
+    color: Black;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: center;
+    cursor:pointer;
+}
+
+.yellowborder {
+    border-bottom: solid 5px #d78a10;
+}
+
+.greenborder {
+    border-bottom: solid 5px #30671a;
+}
+
+.redborder {
+    border-bottom: solid 5px red;
+}
+
+.Miner {
+    position: relative;
+    clear: both;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 12px;
+    vertical-align: middle;
+    text-align: center;
+    padding-top: 3px;
+    border: solid 1px gray;
+    height: 18px;
+}
+
+.minerbar {
+    width: 90%;
+    position: absolute;
+    margin-top: -3px;
+    height: 20px;
+    z-index: -1
+}
+
+#overallbar {
+    position: relative;
+    background-color: #7ddb5d;
+    height: 50px;
+}
+
+#score {
+    font-family:Verdana;
+    font-weight:bold;
+    font-size:20px;
+    position:absolute;
+    margin-top:-40px;
+    margin-left:20px;
+    text-align:center;
+}
+
+#overallStatus {
+    width:300px;
+    border:solid 1px gray;
+}
+
+.btnMiner {
+    width:100%;
+}
+
+.chart {
+    background-image: url('http://localhost:52424/images/chart1.png');
+    background-repeat: no-repeat;
+    background-color: black;
+    border:none;
+    color:white;
+}
+
+.alerts {
+    position:relative;
+}
+
+    .alerts div {
+        float:left;
+        text-align:center;
+        min-width:25px;
+    }
+
+.cnt {
+    clear: both;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: center;
+    font-family: Arial;
+    font-size: 10px;
+    font-weight:bold;
+    margin-right: 2px;
+    padding: 2px;
+    background-color: antiquewhite;
+    color: black;
+}
+
+.duration {
+    clear: both;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: center;
+    font-family:Arial;
+    font-size:8px;
+    margin-right:2px;
+    padding:2px;
+    background-color:black;
+    color:white;
+}
+
+.iframe {
+    width:100%;
+    height:800px;
+}
+
+.hidden {
+    visibility:hidden;
+    display:none;
+}
