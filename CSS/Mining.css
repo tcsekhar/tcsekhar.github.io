@@ -1,21 +1,43 @@
-﻿body {
+﻿
+html body {
     font-family:Verdana;
+    margin-top:0px;
+    margin-left:0px;
+    margin-bottom:0px;
+    margin-right:0px;
+    overflow-x:hidden;
+}
+
+.pgContent {
+    margin-left:20px;
+    margin-top:20px;
+}
+
+.pgTitle {
+    background-image: url(../Images/bg.jpg);
+    background-repeat: repeat-x;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 30px;
+    color: white;
+    padding: 10px;
+    width:100%;
+}
+.subTitle {
+    font-size: 18px;
+    font-family: 'Nanum Pen Script', cursive;
 }
 
 input {
-    font-variant:small-caps;
-    font-weight:bold;
-    font-family:Tahoma;
-}
-
-#overallStatus {
-    cursor:pointer;
+    font-variant: small-caps;
+    font-weight: bold;
+    font-family: Tahoma;
 }
 
 #time {
-    background-color: aquamarine;
-    padding-left: 10px;
-    padding-right: 10px;
+    float:right;
+    color:white;
+    margin-top:-30px;
+    padding-right:20px;
 }
 
 .Mstr {
@@ -104,23 +126,24 @@ input {
 
 #overallbar {
     position: relative;
-    background-color: #7ddb5d;
+    background-color: #f7c607;
     height: 50px;
 }
 
 #score {
-    font-family:Verdana;
-    font-weight:bold;
-    font-size:20px;
-    position:absolute;
-    margin-top:-40px;
-    margin-left:20px;
-    text-align:center;
+    font-family: Aldrich;
+    font-weight: bold;
+    font-size: 20px;
+    position: absolute;
+    margin-top: -35px;
+    margin-left: 20px;
+    text-align: center;
 }
 
 #overallStatus {
     width:300px;
     border:solid 1px gray;
+    display:inline-block;
 }
 
 .btnMiner {
@@ -183,3 +206,6 @@ input {
     visibility:hidden;
     display:none;
 }
+
+
+

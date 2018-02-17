@@ -3,7 +3,7 @@
         $("#time").html(data.LastUpdateDate);
         var pct = (data.CurrentTotalHashRate / data.MaxTotalHashRate) * 100;
         $("#overallbar").css("width", pct + '%');
-        $("#score").html(Math.round(data.CurrentTotalHashRate) + "/" + Math.round(data.MaxTotalHashRate));
+        $("#score").html('Overall hash: ' +  Math.round(data.CurrentTotalHashRate) + "/" + Math.round(data.MaxTotalHashRate));
         var itms = data.Miners;
         var pct;
         var color;

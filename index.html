@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -6,24 +6,34 @@
     <meta charset="utf-8" />
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Aldrich|Fjalla+One|Nanum+Pen+Script" rel="stylesheet">
     <link href="CSS/Mining.css" rel="stylesheet" />
     <script src="js/Mining.js"></script>
     <script src="dist/Chart.js"></script>
 </head>
 <body>
-    <h2>Sekhar's Mining Farm : Current Status as of <a id="time"></a></h2>
-    <input id="selectedMiner" type="hidden"/>
-    <div id="overallStatus" onclick="getAllMinersChart()">
-        <div id="overallbar"></div>
-        <div id="score"></div>
+   <div class="pgTitle">
+       Sekhar's Mining Farm
+       <br />
+       <div class="subTitle">Hashing through the mines..</div>
+       <a id="time"></a>
+   </div>
+    
+
+    <div class="pgContent">
+        <input id="selectedMiner" type="hidden" />
+        <div  id="overallStatus" onclick="getAllMinersChart()">
+            <div id="overallbar"></div>
+            <div id="score"></div>
+        </div>
+        <div id="cnt"></div>
+        <p></p>
+        <div id="chartLoc" style="width:50%;  min-width:640px;">
+            <canvas id="gpus"></canvas>
+        </div>
+        <input type="button" minerid="" id="btnShowSSH" value="Login [SSH]" class="hidden" onclick="showSSH();" />
+        <div id="iframe" class="iframe"></div>
     </div>
-    <div id="cnt"></div>
-    <p></p>
-    <div id="chartLoc" style="width:50%;  min-width:640px;">
-        <canvas id="gpus"></canvas>
-    </div>
-    <input type="button" minerid="" id="btnShowSSH" value="Login [SSH]" class="hidden" onclick="showSSH();" />
-    <div id="iframe" class="iframe"></div>
 </body>
 
 </html>
