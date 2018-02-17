@@ -81,7 +81,7 @@
         $("#chartLoc").html('<canvas id="gpus"></canvas>');
         var id = '#' + Miner;
         var MinerID = $(id).attr("minerid");
-        $.get('GetData.aspx?charttype=' + type + '&MinerID=' + MinerID, function (data) {
+        $.get('https://raw.githubusercontent.com/tcsekhar/Mining/master/' + Miner + '.JSON?s=' + Math.random(), function (data) {
             gpus = JSON.parse(data);
             var ctx3 = document.getElementById("gpus").getContext("2d");
             window.myLine = new Chart(ctx3, gpus);
