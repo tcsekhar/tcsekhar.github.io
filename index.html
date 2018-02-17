@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Sekhar's Mining Farm :: Status</title>
+    <meta charset="utf-8" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+    <link href="CSS/Mining.css" rel="stylesheet" />
+    <script src="js/Mining.js"></script>
+    <script src="dist/Chart.js"></script>
+</head>
+<body>
+    <h2>Sekhar's Mining Farm : Current Status as of <a id="time"></a></h2>
+    <input id="selectedMiner" type="hidden"/>
+    <div id="overallStatus" onclick="getAllMinersChart()">
+        <div id="overallbar"></div>
+        <div id="score"></div>
+    </div>
+    <div id="cnt"></div>
+    <p></p>
+    <div id="chartLoc" style="width:50%;  min-width:640px;">
+        <canvas id="gpus"></canvas>
+    </div>
+    <input type="button" minerid="" id="btnShowSSH" value="Login [SSH]" class="hidden" onclick="showSSH();" />
+    <div id="iframe" class="iframe"></div>
+</body>
+
+</html>
+<script type="text/javascript">
+    var chartHt = 100;
+    var gpus;
+
+    function populateScreen() {
+        $.get('https://raw.githubusercontent.com/tcsekhar/Mining/master/MinerStats.json?s=' + Math.random(), function (data) { fnGetBars(JSON.parse(data)); });
+        setTimeout(populateScreen, 30000)
+    }   
+
+
+
+    populateScreen();
+    getAllMinersChart();
+
+    
+
+    //var v = { "MaxTotalHashRate": 1903.1250, "CurrentTotalHashRate": 1865.649, "LastUpdateDate": "Feb 16 2018  9:33AM", "Miners": [{ "miner": "Miner1", "cards": 8, "IPAddress": "10.0.1.61", "maxhash": 246.3360, "hash": 234.323, "gpus": [{ "hash": 0, "temp": 52, "fan": 83 }, { "hash": 29.025, "temp": 57, "fan": 83 }, { "hash": 0, "temp": 63, "fan": 83 }, { "hash": 29.020, "temp": 58, "fan": 83 }, { "hash": 29.038, "temp": 56, "fan": 83 }, { "hash": 30.132, "temp": 50, "fan": 83 }, { "hash": 30.771, "temp": 46, "fan": 83 }, { "hash": 28.180, "temp": 55, "fan": 83 }] }, { "miner": "Miner11", "cards": 8, "IPAddress": "10.0.1.37", "maxhash": 232.0960, "hash": 223.265, "gpus": [{ "hash": 27.816, "temp": 54, "fan": 83 }, { "hash": 28.993, "temp": 50, "fan": 83 }, { "hash": 21.526, "temp": 46, "fan": 83 }, { "hash": 28.979, "temp": 54, "fan": 83 }, { "hash": 28.980, "temp": 63, "fan": 83 }, { "hash": 28.987, "temp": 40, "fan": 83 }, { "hash": 28.990, "temp": 47, "fan": 83 }, { "hash": 28.990, "temp": 50, "fan": 83 }] }, { "miner": "Miner12", "cards": 8, "IPAddress": "10.0.1.63", "maxhash": 241.9680, "hash": 240.452, "gpus": [{ "hash": 29.995, "temp": 60, "fan": 83 }, { "hash": 29.989, "temp": 66, "fan": 83 }, { "hash": 29.992, "temp": 58, "fan": 83 }, { "hash": 29.997, "temp": 51, "fan": 83 }, { "hash": 30.252, "temp": 52, "fan": 83 }, { "hash": 29.996, "temp": 59, "fan": 83 }, { "hash": 29.972, "temp": 57, "fan": 83 }, { "hash": 30.257, "temp": 61, "fan": 83 }] }, { "miner": "Miner13", "cards": 8, "IPAddress": "10.0.1.5", "maxhash": 232.0880, "hash": 231.854, "gpus": [{ "hash": 28.968, "temp": 59, "fan": 83 }, { "hash": 28.976, "temp": 58, "fan": 83 }, { "hash": 29.005, "temp": 58, "fan": 83 }, { "hash": 28.975, "temp": 55, "fan": 83 }, { "hash": 28.967, "temp": 51, "fan": 83 }, { "hash": 28.968, "temp": 57, "fan": 83 }, { "hash": 29.022, "temp": 53, "fan": 83 }, { "hash": 28.970, "temp": 60, "fan": 83 }] }, { "miner": "Miner14", "cards": 7, "IPAddress": "10.0.1.88", "maxhash": 219.1490, "hash": 207.527, "gpus": [{ "hash": 31.319, "temp": 42, "fan": 83 }, { "hash": 28.981, "temp": 41, "fan": 83 }, { "hash": 28.984, "temp": 56, "fan": 83 }, { "hash": 28.974, "temp": 54, "fan": 83 }, { "hash": 28.987, "temp": 62, "fan": 83 }, { "hash": 31.304, "temp": 45, "fan": 83 }, { "hash": 28.976, "temp": 68, "fan": 83 }] }, { "miner": "Miner141", "cards": 8, "IPAddress": "10.0.1.50", "maxhash": 232.0480, "hash": 231.965, "gpus": [{ "hash": 28.943, "temp": 60, "fan": 83 }, { "hash": 28.887, "temp": 55, "fan": 83 }, { "hash": 29.034, "temp": 48, "fan": 83 }, { "hash": 29.009, "temp": 55, "fan": 83 }, { "hash": 29.031, "temp": 58, "fan": 83 }, { "hash": 29.022, "temp": 65, "fan": 83 }, { "hash": 28.994, "temp": 63, "fan": 83 }, { "hash": 29.041, "temp": 60, "fan": 83 }] }, { "miner": "Miner22", "cards": 8, "IPAddress": "10.0.1.65", "maxhash": 249.3600, "hash": 248.391, "gpus": [{ "hash": 31.129, "temp": 53, "fan": 80 }, { "hash": 30.933, "temp": 42, "fan": 80 }, { "hash": 31.128, "temp": 50, "fan": 80 }, { "hash": 30.909, "temp": 38, "fan": 80 }, { "hash": 31.131, "temp": 53, "fan": 80 }, { "hash": 31.128, "temp": 49, "fan": 80 }, { "hash": 31.118, "temp": 54, "fan": 80 }, { "hash": 30.911, "temp": 43, "fan": 80 }] }, { "miner": "Miner23", "cards": 8, "IPAddress": "10.0.1.113", "maxhash": 250.0800, "hash": 247.872, "gpus": [{ "hash": 31.278, "temp": 44, "fan": 80 }, { "hash": 28.975, "temp": 60, "fan": 80 }, { "hash": 31.270, "temp": 47, "fan": 80 }, { "hash": 31.265, "temp": 48, "fan": 80 }, { "hash": 31.268, "temp": 48, "fan": 80 }, { "hash": 31.269, "temp": 47, "fan": 80 }, { "hash": 31.294, "temp": 44, "fan": 80 }, { "hash": 31.249, "temp": 48, "fan": 80 }] }] };
+    //fnGetBars(v);
+   
+
+</script>
