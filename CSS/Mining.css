@@ -163,7 +163,7 @@ input {
 }
 
 .green {
-    background-color: #7ddb5d;
+    background-color: #30671a;
 }
 
 .red {
@@ -195,18 +195,6 @@ input {
     cursor:pointer;
 }
 
-.yellowborder {
-    border-bottom: solid 5px #d78a10;
-}
-
-.greenborder {
-    border-bottom: solid 5px #30671a;
-}
-
-.redborder {
-    border-bottom: solid 5px red;
-}
-
 .Miner {
     position: relative;
     clear: both;
@@ -217,7 +205,7 @@ input {
     text-align: center;
     padding-top: 3px;
     border: solid 1px gray;
-    height: 18px;
+    height: 16px;
 }
 
 .minerbar {
@@ -313,5 +301,162 @@ input {
     display:none;
 }
 
+.c40 {
+    border-bottom: solid 5px #00E53C;
+}
 
+.c41 {
+    border-bottom: solid 5px #00E42E;
+}
 
+.c42 {
+    border-bottom: solid 5px #00E320;
+}
+
+.c43 {
+    border-bottom: solid 5px #00E213;
+}
+
+.c44 {
+    border-bottom: solid 5px #00E106;
+}
+
+.c45 {
+    border-bottom: solid 5px #06E000;
+}
+
+.c46 {
+    border-bottom: solid 5px #13DF00;
+}
+
+.c47 {
+    border-bottom: solid 5px #20DE00;
+}
+
+.c48 {
+    border-bottom: solid 5px #2DDD00;
+}
+
+.c49 {
+    border-bottom: solid 5px #3ADC00;
+}
+
+.c50 {
+    border-bottom: solid 5px #46DB00;
+}
+
+.c51 {
+    border-bottom: solid 5px #53DA00;
+}
+
+.c52 {
+    border-bottom: solid 5px #5FD900;
+}
+
+.c53 {
+    border-bottom: solid 5px #6BD800;
+}
+
+.c54 {
+    border-bottom: solid 5px #78D700;
+}
+
+.c55 {
+    border-bottom: solid 5px #84D600;
+}
+
+.c56 {
+    border-bottom: solid 5px #8FD500;
+}
+
+.c57 {
+    border-bottom: solid 5px #9BD400;
+}
+
+.c58 {
+    border-bottom: solid 5px #A7D300;
+}
+
+.c59 {
+    border-bottom: solid 5px #B2D200;
+}
+
+.c60 {
+    border-bottom: solid 5px #BED100;
+}
+
+.c61 {
+    border-bottom: solid 5px #C9D000;
+}
+
+.c62 {
+    border-bottom: solid 5px #CFCA00;
+}
+
+.c63 {
+    border-bottom: solid 5px #CEBD00;
+}
+
+.c64 {
+    border-bottom: solid 5px #CDB000;
+}
+
+.c65 {
+    border-bottom: solid 5px #CCA300;
+}
+
+.c66 {
+    border-bottom: solid 5px #CB9600;
+}
+
+.c67 {
+    border-bottom: solid 5px #CA8A00;
+}
+
+.c68 {
+    border-bottom: solid 5px #C97D00;
+}
+
+.c69 {
+    border-bottom: solid 5px #C87100;
+}
+
+.c70 {
+    border-bottom: solid 5px #C76500;
+}
+
+.c71 {
+    border-bottom: solid 5px #C65800;
+}
+
+.c72 {
+    border-bottom: solid 5px #C54C00;
+}
+
+.c73 {
+    border-bottom: solid 5px #C44100;
+}
+
+.c74 {
+    border-bottom: solid 5px #C33500;
+}
+
+.c75 {
+    border-bottom: solid 5px #C22900;
+}
+
+.c76 {
+    border-bottom: solid 5px #C11D00;
+}
+
+.c77 {
+    border-bottom: solid 5px #C01200;
+}
+
+.c78 {
+    border-bottom: solid 5px #BF0700;
+}
+
+.c79 {
+    border-bottom: solid 5px #BF0003;
+}

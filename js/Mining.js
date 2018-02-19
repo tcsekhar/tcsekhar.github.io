@@ -1,5 +1,7 @@
-﻿    function fnGetBars(data)
+﻿
+    function fnGetBars(data)
     {
+        
         $("#time").html(data.LastUpdateDate);
         var pct = (data.CurrentTotalHashRate / data.MaxTotalHashRate) * 100;
         $(".mnCnt").html(data.RIGs);
@@ -19,15 +21,17 @@
             var currhash = itms[j].hash;
             for (var i = 0; i < gpus.length; i++) {
                 pct = (1 - ((maxhash / gpus.length) - gpus[i].hash) / (maxhash / gpus.length)) * 100;
+                var intPctForColor = Math.round(gpus[i].temp);
+                if (intPctForColor < 40)
+                    intPctForColor = 0;
+                if (intPctForColor > 79)
+                    intPctForColor = 79;
                 color = 'green';
                 if (pct <= 85 && pct >= 60) color = 'yellow';
                 if (pct < 60) color = 'red';
                 if (pct == 0) color = 'zero';
-                var bor = 'greenborder';
-                if (gpus[i].temp <= 75 && gpus[i].temp >= 60) bor = 'yellowborder';
-                if (gpus[i].temp > 75) bor = 'redborder';
                 var faran = gpus[i].temp * 9 / 5 + 32;
-                html += '<div title="Hashrate: ' + gpus[i].hash + '\nTemp: ' + gpus[i].temp + '°C / ' + faran + '°F\nFan: ' + gpus[i].fan + '%" tooltip=title="Hashrate: ' + gpus[i].hash + '\nTemp: ' + gpus[i].temp + '°C / ' + faran + '°F\nFan: ' + gpus[i].fan + '%" class="container"><div class="Child ' + color + ' ' + bor + '" ht=' + pct + '></div>' + Math.round(gpus[i].hash) + '</div>';
+                html += '<div title="Hashrate: ' + gpus[i].hash + '\nTemp: ' + gpus[i].temp + '°C / ' + faran + '°F\nFan: ' + gpus[i].fan + '%" tooltip=title="Hashrate: ' + gpus[i].hash + '\nTemp: ' + gpus[i].temp + '°C / ' + faran + '°F\nFan: ' + gpus[i].fan + '%" class="container"><div class="Child ' + color + ' c' + intPctForColor + '" ht="' + pct + '" ></div>' + Math.round(gpus[i].hash)  + '</div>';
             }
             pct = (1 - (itms[j].maxhash - itms[j].hash) / itms[j].maxhash) * 100;
             color = 'green';
