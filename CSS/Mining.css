@@ -13,6 +13,54 @@ html body {
     margin-top:20px;
 }
 
+.ovall {
+    display: inline-block;
+}
+
+.mnCnt  {
+    position: relative;
+    float: left;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 65px;
+    margin-top:-13px;
+    padding-right:5px;
+    margin-left:100px;
+}
+
+.gpCnt {
+    position: relative;
+    float: left;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 65px;
+    margin-top: -13px;
+    padding-right: 5px;
+}
+
+
+#machines {
+    background-image: url(../Images/cpu-sm.png);
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+    position: relative;
+    float: left;
+    padding-top: 40px;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 15px;
+}
+
+#gpuscnt {
+    background-image: url(../Images/gpu-small.png);
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+    position: relative;
+    float: left;
+    padding-top: 40px;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 15px;
+}
+
 .pgTitle {
     background-image: url(../Images/bg.jpg);
     background-repeat: repeat-x;
@@ -142,10 +190,10 @@ input {
 }
 
 #overallStatus {
-    width: 300px;
+    width: 350px;
     border: solid 1px gray;
-    display: inline-block;
     cursor: pointer;
+    float:left;
 }
 
 .btnMiner {

@@ -18,13 +18,17 @@
        <div class="subTitle">Hashing through the mines..</div>
        <a id="time"></a>
    </div>
-    
-
+    <input id="selectedMiner" type="hidden" />
     <div class="pgContent">
-        <input id="selectedMiner" type="hidden" />
-        <div  id="overallStatus" onclick="getAllMinersChart()">
-            <div id="overallbar"></div>
-            <div id="score"></div>
+        <div class="ovall">
+            <div id="hw">
+                <div id="overallStatus" onclick="getAllMinersChart()">
+                    <div id="overallbar"></div>
+                    <div id="score"></div>
+                </div>
+                <div class="mnCnt">9</div><div id="machines">RIGs</div>
+                <div class="gpCnt">65</div><div id="gpuscnt">GPUs</div>
+            </div>
         </div>
         <div id="cnt"></div>
         <p></p>
@@ -42,7 +46,11 @@
     var gpus;
 
     function populateScreen() {
-        $.get('https://raw.githubusercontent.com/tcsekhar/Mining/master/MinerStats.json?s=' + Math.random(), function (data) { fnGetBars(JSON.parse(data)); });
+        if (window.location.href.split('/')[2].split(':')[0].toLowerCase() == 'basement' || window.location.href.split('/')[2].split(':')[0].toLowerCase() == 'localhost')
+            $.get('getdata.aspx', function (data) { fnGetBars(JSON.parse(data)); });
+        else
+            $.get('https://raw.githubusercontent.com/tcsekhar/Mining/master/MinerStats.json?s=' + Math.random(), function (data) { fnGetBars(JSON.parse(data)); });
+
         setTimeout(populateScreen, 30000)
     }   
 

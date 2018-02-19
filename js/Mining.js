@@ -2,8 +2,10 @@
     {
         $("#time").html(data.LastUpdateDate);
         var pct = (data.CurrentTotalHashRate / data.MaxTotalHashRate) * 100;
+        $(".mnCnt").html(data.RIGs);
+        $(".gpCnt").html(data.GPUs);
         $("#overallbar").css("width", pct + '%');
-        $("#score").html('Overall hash: ' +  Math.round(data.CurrentTotalHashRate) + "/" + Math.round(data.MaxTotalHashRate));
+        $("#score").html('Overall hash: ' +  Math.round(data.CurrentTotalHashRate) + "/" + Math.round(data.MaxTotalHashRate) + ' Mh/s');
         var itms = data.Miners;
         var pct;
         var color;
@@ -64,7 +66,12 @@
     }
 
     function getAllMinersChart() {
-        $.get('https://raw.githubusercontent.com/tcsekhar/Mining/master/MinersChart.json?s=' + Math.random(), function (data) {
+        var url;
+        if (window.location.href.split('/')[2].split(':')[0].toLowerCase() == 'basement' || window.location.href.split('/')[2].split(':')[0].toLowerCase() == 'localhost')
+            url = 'getdata.aspx?charttype=ALL';
+        else
+            url = 'https://raw.githubusercontent.com/tcsekhar/Mining/master/MinersChart.json?s=' + Math.random();
+        $.get(url, function (data) {
             gpus = JSON.parse(data);
             var ctx3 = document.getElementById("gpus").getContext("2d");
             window.myLine = new Chart(ctx3, gpus);
@@ -79,9 +86,15 @@
     
     function getChart(type, Miner) {
         $("#chartLoc").html('<canvas id="gpus"></canvas>');
+        var url;
         var id = '#' + Miner;
         var MinerID = $(id).attr("minerid");
-        $.get('https://raw.githubusercontent.com/tcsekhar/Mining/master/' + Miner + '.JSON?s=' + Math.random(), function (data) {
+        if (window.location.href.split('/')[2].split(':')[0].toLowerCase() == 'basement' || window.location.href.split('/')[2].split(':')[0].toLowerCase() == 'localhost')
+            url = 'getdata.aspx?charttype=GPU&MinerID=' + MinerID;
+        else
+            url = 'https://raw.githubusercontent.com/tcsekhar/Mining/master/' + Miner + '.JSON?s=' + Math.random();
+
+        $.get(url, function (data) {
             gpus = JSON.parse(data);
             var ctx3 = document.getElementById("gpus").getContext("2d");
             window.myLine = new Chart(ctx3, gpus);
