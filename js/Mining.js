@@ -4,8 +4,9 @@
         var pct = (data.CurrentTotalHashRate / data.MaxTotalHashRate) * 100;
         $(".mnCnt").html(data.RIGs);
         $(".gpCnt").html(data.GPUs);
-        $("#overallbar").css("width", pct + '%');
-        $("#score").html('Overall hash: ' +  Math.round(data.CurrentTotalHashRate) + "/" + Math.round(data.MaxTotalHashRate) + ' Mh/s');
+        $(".overallbarfill").css("width", pct + '%');
+        $(".overallbarfill").html(Math.round(pct) + '% of ' + Math.round(data.MaxTotalHashRate) + 'Mh/s');
+        $(".hshRate").html(addCommas(Math.round(data.CurrentTotalHashRate)));
         var itms = data.Miners;
         var pct;
         var color;
@@ -47,6 +48,17 @@
         pickMiner('');
     }
 
+    function addCommas(nStr) {
+        nStr += '';
+        var x = nStr.split('.');
+        var x1 = x[0];
+        var x2 = x.length > 1 ? '.' + x[1] : '';
+        var rgx = /(\d+)(\d{3})/;
+        while (rgx.test(x1)) {
+            x1 = x1.replace(rgx, '$1' + ',' + '$2');
+        }
+        return x1 + x2;
+    }
 
     function pickMiner(Miner)
     {

@@ -17,14 +17,34 @@ html body {
     display: inline-block;
 }
 
-.mnCnt  {
+.overallbar {
+    border: solid 1px #808080;
+    width: 90%;
+    height: 15px;
+    float: left;
+    margin-top: -20px;
+    position: relative;
+}
+
+.overallbarfill {
+    background-color: #808080;
+    width: 90%;
+    height: 15px;
+    float: left;
+    position: relative;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 12px;
+    text-align:center;
+    color:#3c3b3b;
+}
+
+.mnCnt {
     position: relative;
     float: left;
     font-family: 'Fjalla One', sans-serif;
     font-size: 65px;
-    margin-top:-13px;
-    padding-right:5px;
-    margin-left:100px;
+    margin-top: -13px;
+    padding-right: 5px;
 }
 
 .gpCnt {
@@ -36,10 +56,28 @@ html body {
     padding-right: 5px;
 }
 
+.hshRate {
+    position: relative;
+    float: left;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 65px;
+    margin-top: -13px;
+    padding-right: 5px;
+}
+
+.mhs {
+    position: relative;
+    float: left;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 25px;
+    margin-top: 28px;
+    padding-right: 5px;
+}
 
 #machines {
     background-image: url(../Images/cpu-sm.png);
     background-repeat: no-repeat;
+    filter: opacity(40%);
     height: 50px;
     width: 50px;
     position: relative;
@@ -47,11 +85,13 @@ html body {
     padding-top: 40px;
     font-family: 'Fjalla One', sans-serif;
     font-size: 15px;
+    padding-right: 80px;
 }
 
 #gpuscnt {
     background-image: url(../Images/gpu-small.png);
     background-repeat: no-repeat;
+    filter: opacity(40%);
     height: 50px;
     width: 50px;
     position: relative;
@@ -59,7 +99,23 @@ html body {
     padding-top: 40px;
     font-family: 'Fjalla One', sans-serif;
     font-size: 15px;
+    padding-right: 80px;
 }
+
+#mhs {
+    background-image: url(../Images/hash.jpg);
+    background-repeat: no-repeat;
+    filter: opacity(40%);
+    height: 50px;
+    width: 50px;
+    position: relative;
+    float: left;
+    padding-top: 40px;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 15px;
+    padding-right: 80px;
+}
+
 
 .pgTitle {
     background-image: url(../Images/bg.jpg);
@@ -190,7 +246,7 @@ input {
 }
 
 #overallStatus {
-    width: 350px;
+    width: 70px;
     border: solid 1px gray;
     cursor: pointer;
     float:left;
