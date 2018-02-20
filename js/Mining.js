@@ -94,6 +94,9 @@
             $("#btnShowSSH").attr("class", "");
             $("#btnShowSSH").attr("class", "hidden");
             $("#btnShowSSH").attr("Miner", '');
+            $("#btnShowStats").attr("class", "");
+            $("#btnShowStats").attr("class", "hidden");
+            $("#btnShowStats").attr("Miner", '');
             $("#selectedMiner").val('');
             $(".Mstr").attr("class", "Mstr");
             $(".btnMiner").attr("class", "btnMiner");
@@ -115,12 +118,17 @@
             var ctx3 = document.getElementById("gpus").getContext("2d");
             window.myLine = new Chart(ctx3, gpus);
             if (Miner != '') {
-                $("#btnShowSSH").attr("Miner",Miner);
+                $("#btnShowSSH").attr("Miner", Miner);
                 $("#btnShowSSH").attr("class", "");
                 $("#btnShowSSH").val("Login " + Miner + " [SSH]");
+                $("#btnShowStats").attr("Miner", Miner);
+                $("#btnShowStats").attr("class", "");
+                $("#btnShowStats").val("Show Stats " + Miner);
             }
-            else
+            else {
                 $("#btnShowSSH").attr("class", "hidden");
+                $("#btnShowStats").attr("class", "hidden");
+            }
         });
     }
 
@@ -129,4 +137,10 @@
         var Miner = $("#selectedMiner").val();
         var id = '#' + Miner;
         $("#iframe").html('<iframe src="http://' + $(id).attr("ip") + '/" frameborder="0" scrolling="no" id="sshframe" height="100%" width="100%">')
+    }
+
+    function showStats() {
+        var Miner = $("#selectedMiner").val();
+        var id = '#' + Miner;
+        $("#iframe").html('<iframe src="http://' + $(id).attr("ip") + ':3333" frameborder="0" scrolling="no" id="sshframe" height="100%" width="100%">')
     }
