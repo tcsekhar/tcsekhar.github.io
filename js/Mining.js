@@ -137,11 +137,13 @@
     {
         var Miner = $("#selectedMiner").val();
         var id = '#' + Miner;
-        $("#iframe").html('<iframe src="http://' + $(id).attr("ip") + '/" frameborder="0" scrolling="no" id="sshframe" height="100%" width="100%">')
+        //$("#iframe").html('<iframe src="http://' + $(id).attr("ip") + '/" frameborder="0" scrolling="no" id="sshframe" height="100%" width="100%">')
+        window.open('http://' + $(id).attr("ip") + '/');
     }
 
     function showStats() {
         var Miner = $("#selectedMiner").val();
         var id = '#' + Miner;
-        $("#iframe").html('<iframe src="http://' + $(id).attr("ip") + ':3333" frameborder="0" scrolling="no" id="sshframe" height="100%" width="100%">')
+        //$("#iframe").html('<iframe src="http://' + $(id).attr("ip") + ':3333" frameborder="0" scrolling="no" id="sshframe" height="100%" width="100%">')
+        window.open('http://' + $(id).attr("ip") + ':3333');
     }
