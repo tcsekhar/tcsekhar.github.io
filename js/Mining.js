@@ -100,6 +100,7 @@
             $("#selectedMiner").val('');
             $(".Mstr").attr("class", "Mstr");
             $(".btnMiner").attr("class", "btnMiner");
+            $("#iframe").html('');
         });
     }    
     
